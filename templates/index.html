@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Sentiment Analysis</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Sentiment Analysis</h1>
+        <h1 class="text-center">Sentiment Analyzer</h1>
         <div class="form-group">
             <label for="contentInput">Enter text:</label>
             <textarea class="form-control" id="contentInput" rows="4"></textarea>
@@ -17,7 +16,6 @@
         <div id="result" class="mt-3"></div>
     </div>
 
-    <!-- jQuery and Bootstrap JS (for AJAX and UI components) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     $(document).ready(function(){
@@ -29,10 +27,10 @@
                 contentType: "application/json",
                 data: JSON.stringify({ "content": content }),
                 success: function(response){
-                    $("#result").html("<h3>Sentiment: " + response.sentiment + "</h3>");
+                    $("#result").html("<h4>Sentiment: " + response.sentiment + "</h4>");
                 },
-                error: function(error){
-                    $("#result").html("<h3>An error occurred. Please try again.</h3>");
+                error: function(){
+                    $("#result").html("<h4 class='text-danger'>Error occurred</h4>");
                 }
             });
         });
@@ -40,4 +38,5 @@
     </script>
 </body>
 </html>
+
 
